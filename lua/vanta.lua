@@ -103,13 +103,13 @@ local function get_groups()
     Error = { fg = colors.bg0, bg = colors.red0, bold = config.bold },
 
     Type = { fg = colors.green2 },
+    Special = { fg = colors.green2 },
     Statement = { fg = colors.fg1 },
     Identifier = { fg = colors.fg1 },
     Function = { fg = colors.green1 },
-    Delimeter = { fg = colors.green2 },
+    Delimeter = { fg = colors.fg1 },
 
     String = { fg = colors.emerald0 },
-    Special = { fg = colors.emerald0 },
     Character = { fg = colors.emerald1 },
     Boolean = { fg = colors.green2 },
     Number = { fg = colors.green2 },
@@ -125,6 +125,9 @@ local function get_groups()
     DiffAdd = { bg = colors.green0 },
     DiffChange = { bg = colors.cyan0 },
     DiffText = { bg = colors.yellow0, fg = colors.bg0 },
+
+    TelescopeSelection = { bg = colors.blue0 },
+
 
     MiniStatuslineDevinfo = { link = "StatusLine" },
     MiniStatuslineFileinfo = { link = "StatusLine" },
