@@ -104,7 +104,7 @@ local function get_groups()
 
     Type = { fg = colors.teal1 },
     Statement = { fg = colors.fg1 },
-    Identifier = { fg = colors.teal1 },
+    Identifier = { fg = colors.fg1 },
     Function = { fg = colors.green1 },
 
     String = { fg = colors.emerald0 },
@@ -133,6 +133,11 @@ local function get_groups()
     MiniStatuslineModeOther = { fg = colors.fg0, bg = colors.blue, bold = config.bold },
     MiniStatuslineModeReplace = { fg = colors.fg0, bg = colors.blue, bold = config.bold },
     MiniStatuslineModeVisual = { fg = colors.fg0, bg = colors.blue, bold = config.bold },
+
+    -- TODO: do the treesitter links
+    -- ["@property"] = { fg = colors.teal0 },
+    ["@variable"] = { fg = colors.teal0 },
+
   }
 
   -- TODO: implement overrides
