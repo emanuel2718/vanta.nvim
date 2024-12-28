@@ -4,7 +4,7 @@ vanta.nvim
 
 # 🚧 Work in Progress 🚧
 
-This colorscheme is currently in active development and contains only the minimal requirements to make it usable for *my* daily editing.
+This colorscheme is currently in active development and contains only the minimal requirements to make it usable for **my** daily editing.
 
 # Prerequisites
 
@@ -26,3 +26,8 @@ In `init.lua`
 vim.o.background = "dark"
 vim.cmd([[colorscheme vanta]])
 ```
+
+# Looks
+
+![image](https://github.com/user-attachments/assets/18605308-746b-44e1-87d2-7eac8fdf7ae9)
+
