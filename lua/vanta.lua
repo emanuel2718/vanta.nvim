@@ -102,16 +102,19 @@ local function get_groups()
     Done = { fg = colors.bg0, bg = colors.cyan0, bold = config.bold },
     Error = { fg = colors.bg0, bg = colors.red0, bold = config.bold },
 
-    Type = { fg = colors.teal1 },
+    Type = { fg = colors.green2 },
     Statement = { fg = colors.fg1 },
     Identifier = { fg = colors.fg1 },
     Function = { fg = colors.green1 },
+    Delimeter = { fg = colors.green2 },
 
     String = { fg = colors.emerald0 },
+    Special = { fg = colors.emerald0 },
     Character = { fg = colors.emerald1 },
     Boolean = { fg = colors.green2 },
     Number = { fg = colors.green2 },
     Float = { fg = colors.green2 },
+
 
     Pmenu = { fg = colors.fg0, bg = colors.bg0 },
     PmenuSel = { fg = colors.fg0, bg = colors.blue0, bold = config.bold },
@@ -136,7 +139,7 @@ local function get_groups()
 
     -- TODO: do the treesitter links
     -- ["@property"] = { fg = colors.teal0 },
-    ["@variable"] = { fg = colors.teal0 },
+    ["@variable"] = { fg = colors.fg1 },
 
   }
 
