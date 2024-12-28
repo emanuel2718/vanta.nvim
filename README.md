@@ -2,6 +2,10 @@
 vanta.nvim
 </h1>
 
+# 🚧 Work in Progress 🚧
+
+This colorscheme is currently in active development and contains only the minimal requirements to make it usable for *my* daily editing.
+
 # Prerequisites
 
 Neovim 0.8.0+
