@@ -88,6 +88,7 @@ local function get_groups()
 
     Visual = { bg = colors.blue0, fg = colors.fg0 },
     CursorLine = { bg = colors.bg2 },
+    CursorLineNr = { fg = colors.emerald0 },
     CursorColumn = { link = "CursorLine" },
 
     Search = { fg = colors.fg0, bg = colors.teal0 },
@@ -115,7 +116,6 @@ local function get_groups()
     Number = { fg = colors.green2 },
     Float = { fg = colors.green2 },
 
-
     Pmenu = { fg = colors.fg0, bg = colors.bg0 },
     PmenuSel = { fg = colors.fg0, bg = colors.blue0, bold = config.bold },
     -- PmenuSbar = { bg = colors.bg2 },
@@ -127,7 +127,6 @@ local function get_groups()
     DiffText = { bg = colors.yellow0, fg = colors.bg0 },
 
     TelescopeSelection = { bg = colors.blue0 },
-
 
     MiniStatuslineDevinfo = { link = "StatusLine" },
     MiniStatuslineFileinfo = { link = "StatusLine" },
@@ -143,7 +142,6 @@ local function get_groups()
     -- TODO: do the treesitter links
     -- ["@property"] = { fg = colors.teal0 },
     ["@variable"] = { fg = colors.fg1 },
-
   }
 
   -- TODO: implement overrides
