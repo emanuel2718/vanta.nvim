@@ -37,7 +37,7 @@ local function get_colors()
   local colors = {
     dark = {
       bg0 = "#000000",
-      bg1 = "#020617",
+      bg1 = "#1A1A1A",
       bg2 = "#0f172a",
       fg0 = "#f8fafc",
       fg1 = "#e2e8f0",
@@ -84,7 +84,7 @@ local function get_groups()
 
     Normal = config.transparent and { fg = colors.fg0, bg = nil } or { fg = colors.fg0, bg = colors.bg0 },
     NormalNC = config.dim_inactive and { fg = colors.fg2, bg = colors.bg1 } or { link = "Normal" },
-    NormalFloat = config.transparent and { fg = colors.fg0, bg = nil } or { fg = colors.fg0, bg = colors.bg0 },
+    NormalFloat = config.transparent and { fg = colors.fg0, bg = nil } or { fg = colors.fg0, bg = colors.bg1 },
 
     Visual = { bg = colors.blue0, fg = colors.fg0 },
     CursorLine = { bg = colors.bg2 },
