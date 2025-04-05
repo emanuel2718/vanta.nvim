@@ -290,7 +290,7 @@ local function get_groups()
     TelescopePromptCounter = { fg = colors.fg2 },
 
     Directory = { fg = colors.teal1 },
-    LineNr = { fg = colors.fg2 },
+    LineNr = { fg = colors.gray0 },
 
     -- FZF-Lua highlight groups (complete set from documentation)
     -- Main window
@@ -331,7 +331,7 @@ local function get_groups()
     FzfLuaBufName = { fg = colors.teal1 },
     FzfLuaBufId = { fg = colors.fg2 },
     FzfLuaBufNr = { fg = colors.emerald0 },
-    FzfLuaBufLineNr = { fg = colors.green1 },
+    FzfLuaBufLineNr = { fg = colors.gray0 },
     FzfLuaBufFlagCur = { fg = colors.emerald0 },
     FzfLuaBufFlagAlt = { fg = colors.cyan0 },
 
@@ -364,7 +364,7 @@ local function get_groups()
     FzfLuaFzfQuery = { fg = colors.fg0 },
 
     diffFile = { fg = colors.teal1 },
-    diffLine = { fg = colors.green1 }
+    diffLine = { fg = colors.green1 },
   }
 
   -- TODO: implement overrides
@@ -399,7 +399,7 @@ end
 
 Vanta.load = function()
   if vim.version().minor < 8 then
-    vim.notify_once("vanta.nvim: you must use neovim 0.8 or higher to use this colorscheme")
+    vim.notify_once("vanta.nvim: you mus t use neovim 0.8 or higher to use this colorscheme")
     return
   end
 
