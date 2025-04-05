@@ -8,6 +8,13 @@ endif
 
 let g:colors_name = 'vanta'
 
+if has('nvim-0.8')
+  lua require('vanta').load()
+  finish
+endif
+
+set termguicolors
+
 hi Normal guifg=#f8fafc guibg=#000000
 
 hi Comment guifg=#808080 gui=italic
