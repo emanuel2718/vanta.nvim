@@ -1,33 +1,91 @@
-<h1 align="center" style="font-size: 3rem;">
+<h1 align="center" style="font-size: 6rem;">
 vanta.nvim
 </h1>
 
-# 🚧 Work in Progress 🚧
+<p align="center">
+    <a href="#install">Install</a>
+    ·
+    <a href="#usage">Usage</a>
+    ·
+    <a href="#configuration">Configuration</a>
+    ·
+    <a href="#looks">Looks</a>
+  </p>
+</p>
 
-This colorscheme is currently in active development and contains only the minimal requirements to make it usable for **my** daily editing.
+
 
 # Prerequisites
 
 Neovim 0.8.0+
 
-# Installing
 
-## With `lazy.nvim`
+# Install
 
+[lazy.nvim](https://github.com/folke/lazy.nvim)
 ```lua
-{ "emanuel2718/vanta.nvim", priority = 1000 , config = true, opts = ... }
+{ "emanuel2718/vanta.nvim", priority = 1000, config = true, opts = ...  }
+```
+
+[mini.deps](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-deps.md)
+```lua
+add({ source = "emanuel2718/vanta.nvim", name = "vanta" })
+```
+
+[packer.nvim](https://github.com/wbthomason/packer.nvim)
+```lua
+use { "emanuel2718/vata.nvim", as = "vanta" }
+```
+
+[vim-plug](https://github.com/junegunn/vim-plug)
+```vim
+Plug 'emanuel2718/vanta.nvim', { 'as': 'vanta' }
 ```
 
 # Usage
 
-In `init.lua`
+```vim
+colorscheme vanta
+```
 
 ```lua
-vim.o.background = "dark"
-vim.cmd([[colorscheme vanta]])
+vim.cmd.colorscheme "vanta"
 ```
+# Configuration
+```lua
+require("vanta").setup({
+  -- Enable terminal colors (recommended)
+  terminal_colors = true,
+  
+  -- Style options
+  undercurl = false,  -- Use undercurls for diagnostics and spellcheck
+  underline = false,  -- Use underlines for references and matching words
+  bold = true,        -- Use bold for headings, keywords, and UI elements
+  
+  -- Window appearance
+  dim_inactive = false,  -- Dim text in inactive windows
+  transparent = false,   -- Use transparent backgrounds
+  
+  -- Italic options
+  italic = {
+    string = false,    -- Italicize strings
+    operator = false,  -- Italicize operators
+    emphasis = false,  -- Italicize emphasized text
+    comment = true,    -- Italicize comments
+    folds = true,      -- Italicize fold markers
+  },
+})
+```
+
 
 # Looks
 
-![image](https://github.com/user-attachments/assets/18605308-746b-44e1-87d2-7eac8fdf7ae9)
+### Idle
+
+<img width="1277" alt="Image" src="https://github.com/user-attachments/assets/fbe3c520-2a10-4bfa-aacc-f143bbc021fe" />
+
+
+### Completions
+
+<img width="1276" alt="Image" src="https://github.com/user-attachments/assets/0b664374-28ba-4008-b7d1-695a9f9b367f" />
 
