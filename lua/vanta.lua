@@ -32,8 +32,15 @@ Vanta.config = {
     folds = true,
   },
 }
--- hex list of vanta colors
+
+local COLORS_CACHE = nil
+local GROUPS_CACHE = nil
+
 local function get_colors()
+  if COLORS_CACHE then
+    return COLORS_CACHE
+  end
+
   local colors = {
     dark = {
       bg0 = "#000000",
@@ -69,18 +76,15 @@ local function get_colors()
   }
 
   local c = colors[vim.o.background]
-
-  vim.g.terminal_color_1 = c.red0
-  vim.g.terminal_color_2 = c.green0
-  vim.g.terminal_color_3 = c.yellow0
-  vim.g.terminal_color_4 = c.blue0
-  vim.g.terminal_color_5 = c.visual_mode
-  vim.g.terminal_color_6 = c.cyan0
-
+  COLORS_CACHE = c
   return c
 end
 
 local function get_groups()
+  if GROUPS_CACHE then
+    return GROUPS_CACHE
+  end
+
   local colors = get_colors()
   local config = Vanta.config
 
@@ -107,8 +111,8 @@ local function get_groups()
     CursorLineNr = { fg = colors.emerald0 },
     CursorColumn = { link = "CursorLine" },
 
-    Search = { fg = colors.bg0, bg = colors.teal0 },
-    IncSearch = { fg = colors.bg0, bg = colors.blue0 },
+    Search = { fg = colors.fg0, bg = colors.teal0 },
+    IncSearch = { fg = colors.fg0, bg = colors.blue0 },
     CurSearch = { link = "IncSearch" },
 
     StatusLine = { fg = colors.fg0, bg = colors.normal_mode },
@@ -367,39 +371,48 @@ local function get_groups()
     diffLine = { fg = colors.green1 },
   }
 
-  -- TODO: implement overrides
+  GROUPS_CACHE = groups
   return groups
 end
 
 --@param config VantaConfig?
 Vanta.setup = function(config)
   Vanta.config = vim.tbl_deep_extend("force", Vanta.config, config or {})
+  COLORS_CACHE = nil
+  GROUPS_CACHE = nil
 end
+
+local mode_colors = {
+  n = "normal_mode",
+  i = "insert_mode",
+  v = "visual_mode",
+  V = "visual_mode",
+  ["\22"] = "visual_mode",
+  R = "replace_mode",
+  c = "command_mode",
+}
 
 Vanta.update_statusline = function()
   local mode = vim.api.nvim_get_mode().mode
   local colors = get_colors()
-  local mode_color = colors.normal_mode
+  local mode_type = mode_colors[mode] or "normal_mode"
+  local mode_color = colors[mode_type]
 
-  if mode == "i" then
-    mode_color = colors.insert_mode
-  elseif mode:find("v") or mode:find("V") or mode == "\22" then
-    mode_color = colors.visual_mode
-  elseif mode == "R" then
-    mode_color = colors.replace_mode
-  elseif mode == "c" then
-    mode_color = colors.command_mode
+  local hl_groups = {
+    "StatusLine",
+    "MiniStatuslineDevinfo",
+    "MiniStatuslineFileinfo",
+    "MiniStatuslineFilename",
+  }
+
+  for _, group in ipairs(hl_groups) do
+    vim.api.nvim_set_hl(0, group, { fg = colors.fg0, bg = mode_color })
   end
-
-  vim.api.nvim_set_hl(0, "StatusLine", { fg = colors.fg0, bg = mode_color })
-  vim.api.nvim_set_hl(0, "MiniStatuslineDevinfo", { fg = colors.fg0, bg = mode_color })
-  vim.api.nvim_set_hl(0, "MiniStatuslineFileinfo", { fg = colors.fg0, bg = mode_color })
-  vim.api.nvim_set_hl(0, "MiniStatuslineFilename", { fg = colors.fg0, bg = mode_color })
 end
 
 Vanta.load = function()
   if vim.version().minor < 8 then
-    vim.notify_once("vanta.nvim: you mus t use neovim 0.8 or higher to use this colorscheme")
+    vim.notify_once("vanta.nvim: you must use neovim 0.8 or higher to use this colorscheme")
     return
   end
 
@@ -411,7 +424,6 @@ Vanta.load = function()
   vim.o.termguicolors = true
 
   local groups = get_groups()
-
   for group, settings in pairs(groups) do
     vim.api.nvim_set_hl(0, group, settings)
   end
@@ -426,22 +438,28 @@ Vanta.load = function()
   Vanta.update_statusline()
 
   local colors = get_colors()
-  vim.g.terminal_color_0 = colors.bg0
-  vim.g.terminal_color_1 = colors.red0
-  vim.g.terminal_color_2 = colors.green0
-  vim.g.terminal_color_3 = colors.yellow0
-  vim.g.terminal_color_4 = colors.blue0
-  vim.g.terminal_color_5 = colors.visual_mode
-  vim.g.terminal_color_6 = colors.cyan0
-  vim.g.terminal_color_7 = colors.fg0
-  vim.g.terminal_color_8 = colors.bg1
-  vim.g.terminal_color_9 = colors.red0
-  vim.g.terminal_color_10 = colors.green0
-  vim.g.terminal_color_11 = colors.yellow0
-  vim.g.terminal_color_12 = colors.blue0
-  vim.g.terminal_color_13 = colors.visual_mode
-  vim.g.terminal_color_14 = colors.cyan0
-  vim.g.terminal_color_15 = colors.fg1
+  local terminal_colors = {
+    colors.bg0,
+    colors.red0,
+    colors.green0,
+    colors.yellow0,
+    colors.blue0,
+    colors.visual_mode,
+    colors.cyan0,
+    colors.fg0,
+    colors.bg1,
+    colors.red0,
+    colors.green0,
+    colors.yellow0,
+    colors.blue0,
+    colors.visual_mode,
+    colors.cyan0,
+    colors.fg1,
+  }
+
+  for i, color in ipairs(terminal_colors) do
+    vim.g["terminal_color_" .. (i - 1)] = color
+  end
 end
 
 return Vanta
