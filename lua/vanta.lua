@@ -66,6 +66,11 @@ local function get_colors()
       yellow0 = "#fde047",
       red0 = "#ef4444",
 
+      git_add = "#005F00",
+      git_change = "#005F5F",
+      git_delete = "#5F0000",
+      git_text = "#5F5F00",
+
       normal_mode = "#0000ff",
       insert_mode = "#005F60",
       visual_mode = "#5F005F",
@@ -141,10 +146,10 @@ local function get_groups()
     PmenuSbar = { bg = colors.bg1 },
     PmenuThumb = { bg = colors.fg2 },
 
-    DiffDelete = { bg = colors.red0 },
-    DiffAdd = { bg = colors.green0 },
-    DiffChange = { bg = colors.cyan0 },
-    DiffText = { bg = colors.yellow0, fg = colors.bg0 },
+    DiffDelete = { fg = colors.red0, bg = colors.git_delete },
+    DiffAdd = { fg = colors.emerald0, bg = colors.git_add },
+    DiffChange = { fg = colors.cyan0, bg = colors.git_change },
+    DiffText = { fg = colors.fg0, bg = colors.git_text },
 
     MiniStatuslineDevinfo = { fg = colors.fg0, bg = colors.normal_mode },
     MiniStatuslineFileinfo = { fg = colors.fg0, bg = colors.normal_mode },
@@ -184,12 +189,12 @@ local function get_groups()
     ["@comment"] = { link = "Comment" },
 
     -- Git
-    GitSignsAdd = { fg = colors.green0 },
-    GitSignsChange = { fg = colors.cyan0 },
-    GitSignsDelete = { fg = colors.red0 },
-    GitGutterAdd = { fg = colors.green0 },
-    GitGutterChange = { fg = colors.cyan0 },
-    GitGutterDelete = { fg = colors.red0 },
+    GitSignsAdd = { fg = colors.emerald0, bg = colors.git_add },
+    GitSignsChange = { fg = colors.cyan0, bg = colors.git_change },
+    GitSignsDelete = { fg = colors.red0, bg = colors.git_delete },
+    GitGutterAdd = { fg = colors.emerald0, bg = colors.git_add },
+    GitGutterChange = { fg = colors.cyan0, bg = colors.git_change },
+    GitGutterDelete = { fg = colors.red0, bg = colors.git_delete },
 
     -- LSP
     DiagnosticError = { fg = colors.red0 },
@@ -249,7 +254,7 @@ local function get_groups()
 
     -- Lazygit
     LazygitBranch = { fg = colors.cyan0, bold = config.bold },
-    LazygitDiffAdd = { fg = colors.green0 },
+    LazygitDiffAdd = { fg = colors.emerald0 },
     LazygitDiffChange = { fg = colors.cyan0 },
     LazygitDiffDelete = { fg = colors.red0 },
     LazygitCommitHash = { fg = colors.fg2 },
@@ -257,17 +262,17 @@ local function get_groups()
     LazygitCommitAuthor = { fg = colors.fg1 },
     LazygitCommitMessage = { fg = colors.fg0 },
     LazygitStatusModified = { fg = colors.cyan0 },
-    LazygitStatusAdded = { fg = colors.green0 },
+    LazygitStatusAdded = { fg = colors.emerald0 },
     LazygitStatusDeleted = { fg = colors.red0 },
     LazygitStatusRenamed = { fg = colors.cyan0 },
-    LazygitStatusCopied = { fg = colors.green0 },
+    LazygitStatusCopied = { fg = colors.emerald0 },
     LazygitStatusTypeChange = { fg = colors.yellow0 },
     LazygitStatusUnmerged = { fg = colors.red0 },
     LazygitStatusUntracked = { fg = colors.red0 },
     LazygitInstructions = { fg = colors.fg2 },
-    LazygitCurrentFile = { fg = colors.fg0, bg = colors.blue0 },  -- MSDOS blue highlight
-    LazygitSelected = { fg = colors.fg0, bg = colors.blue0 },     -- MSDOS blue highlight
-    LazygitSelectedFile = { fg = colors.fg0, bg = colors.blue0 }, -- MSDOS blue highlight
+    LazygitCurrentFile = { fg = colors.fg0, bg = colors.blue0 },
+    LazygitSelected = { fg = colors.fg0, bg = colors.blue0 },
+    LazygitSelectedFile = { fg = colors.fg0, bg = colors.blue0 },
     LazygitSectionTitle = { fg = colors.fg0, bold = config.bold },
     LazygitConflictMarker = { fg = colors.red0, bold = config.bold },
 
