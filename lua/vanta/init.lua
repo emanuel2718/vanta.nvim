@@ -8,15 +8,9 @@ function Vanta.setup(cfg)
 end
 
 function Vanta.load()
-  print("Loading new vanta.nvim")
-
   if vim.version().minor < 8 then
     vim.notify_once('vanta.nvim: you must use Neovim 0.8 or higher.')
     return
-  end
-
-  if vim.g.colors_name then
-    vim.cmd.hi('clear')
   end
 
   vim.g.colors_name = "vanta"
