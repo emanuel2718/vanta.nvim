@@ -15,14 +15,14 @@ vanta.nvim
 
 <img width="1332" alt="Image" src="https://github.com/user-attachments/assets/aa79fdae-4d9f-4e0d-a315-921ec432c5c9" />
 
-> [!Warning]
-> This is nowhere near completion. Expect broken colors.
-
 # Prerequisites
 
 Neovim 0.8.0+
 
 # Install
+
+> [!Warning]
+> This is nowhere near completion. Expect broken colors.
 
 [lazy.nvim](https://github.com/folke/lazy.nvim)
 
