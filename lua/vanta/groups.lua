@@ -38,7 +38,7 @@ function M.get()
     Function = { fg = colors.green_opaque },
 
     String = { fg = colors.green_bright, italic = config.italic.strings },
-    Character = { fg = colors.green_light },
+    Character = { fg = colors.green_bright },
     Boolean = { fg = colors.green_muted },
     Number = { fg = colors.green_muted },
     Float = { fg = colors.green_muted },
