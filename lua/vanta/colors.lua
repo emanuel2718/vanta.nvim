@@ -11,6 +11,7 @@ function M.get()
   local colors = {
     dark = {
       black = palette.black,
+      black_opaque = palette.black_opaque,
       slate = palette.slate,
       grey_dark = palette.grey_dark,
       grey_neutral = palette.grey_neutral,
@@ -22,6 +23,8 @@ function M.get()
       green_dark = palette.green_dark,
       green_opaque = palette.green_opaque,
       green_neutral = palette.green_neutral,
+      green_muted = palette.green_muted,
+      green_teal = palette.green_teal,
       green_light = palette.green_light,
       green_bright = palette.green_bright,
       red = palette.red,
@@ -44,30 +47,23 @@ function M.apply()
 
   ---@type VantaPalette
   local c = M.get()
-  local t = {
-    c.black,
-    c.slate,
-    c.grey_dark,
-    c.grey_neutral,
-    c.grey_light,
-    c.blue_dark,
-    c.blue_neutral,
-    c.blue_light,
-    c.blue_bright,
-    c.green_dark,
-    c.green_opaque,
-    c.green_neutral,
-    c.green_light,
-    c.green_bright,
-    c.red,
-    c.yellow,
-    c.violet,
-    c.gold,
-  }
 
-  for i, v in ipairs(t) do
-    vim.g["terminal_color_" .. (i - 1)] = v
-  end
+  vim.g.terminal_color_0 = c.black         -- Black
+  vim.g.terminal_color_1 = c.red           -- Red
+  vim.g.terminal_color_2 = c.green_bright  -- Green
+  vim.g.terminal_color_3 = c.gold          -- Yellow
+  vim.g.terminal_color_4 = c.blue_light    -- Blue
+  vim.g.terminal_color_5 = c.violet        -- Magenta
+  vim.g.terminal_color_6 = c.blue_bright   -- Cyan
+  vim.g.terminal_color_7 = c.slate         -- White
+  vim.g.terminal_color_8 = c.grey_dark     -- Bright Black (Dark Grey)
+  vim.g.terminal_color_9 = c.red           -- Bright Red
+  vim.g.terminal_color_10 = c.green_bright -- Bright Green
+  vim.g.terminal_color_11 = c.yellow       -- Bright Yellow
+  vim.g.terminal_color_12 = c.blue_bright  -- Bright Blue
+  vim.g.terminal_color_13 = c.violet       -- Bright Magenta
+  vim.g.terminal_color_14 = c.blue_bright  -- Bright Cyan
+  vim.g.terminal_color_15 = c.slate        -- Bright White
 end
 
 return M

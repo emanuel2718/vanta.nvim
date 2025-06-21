@@ -1,5 +1,6 @@
 ---@class VantaPalette
 ---@field black string
+---@field black_opaque string
 ---@field slate string
 ---@field grey_dark string
 ---@field grey_neutral string
@@ -11,6 +12,8 @@
 ---@field green_dark string
 ---@field green_opaque string
 ---@field green_neutral string
+---@field green_muted string
+---@field green_teal string
 ---@field green_light string
 ---@field green_bright string
 ---@field red string
@@ -21,8 +24,9 @@
 ---@type VantaPalette
 return {
   black = "#000000",
+  black_opaque = "#090909",
   slate = "#e2e8f0",
-  grey_dark = "#353839",
+  grey_dark = "#1A1A1A",
   grey_neutral = "#808080",
   grey_light = "#757477",
 
@@ -32,13 +36,15 @@ return {
   blue_bright = "#22d3ee",
 
   green_dark = "#005F00",
-  green_opaque = "#005F60", -- "#14b8a6"
+  green_opaque = "#14b8a6",
+  green_teal = "#005F60",
+  green_muted = "#839D48",
   green_neutral = "#A2AF49",
   green_light = "#C6CF4C",
   green_bright = "#92FFB8",
 
   yellow = "#fde047",
   violet = "#5F005F",
-  red = "#5F0000",
+  red = "#ff0000",
   gold = "#5F5F00",
 }
