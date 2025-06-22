@@ -34,7 +34,7 @@ Neovim 0.8.0+
 
 ```lua
 -- neovim
-vim.cmd.colorscheme "vanta"
+vim.cmd.colorscheme("vanta")
 ```
 
 # Configuration (Defaults)
@@ -55,11 +55,11 @@ require("vanta").setup({
 
   -- Italic options
   italic = {
-    string = false,    -- Italicize strings
-    operator = false,  -- Italicize operators
-    emphasis = false,  -- Italicize emphasized text
-    comment = true,    -- Italicize comments
-    folds = true,      -- Italicize fold markers
+    strings = false,    -- Italicize strings
+    comments = true,    -- Italicize comments
+    operators = false,  -- Italicize operators
+    emphasis = false,   -- Italicize emphasized text
+    folds = true,       -- Italicize fold markers
   },
 })
 ```

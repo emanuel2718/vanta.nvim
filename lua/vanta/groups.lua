@@ -19,7 +19,7 @@ function M.get()
 
     CursorLine = { bg = colors.blue_dark },
 
-    MatchParen = { bg = colors.blue_light, fg = colors.slate },
+    MatchParen = { bg = colors.blue_light, fg = colors.slate, bold = config.bold },
 
     Search = { bg = colors.green_opaque, fg = colors.slate },
     IncSearch = { bg = colors.blue_neutral, fg = colors.slate },
@@ -29,13 +29,13 @@ function M.get()
     StatusLineNC = { bg = colors.grey_neutral, fg = colors.slate },
 
     Comment = { fg = colors.grey_light, italic = config.italic.comments },
-    Todo = { bg = colors.gold, fg = colors.slate, italic = config.italic.comments },
-    Done = { bg = colors.green_dark, fg = colors.slate, italic = config.italic.comments },
-    Error = { bg = colors.red, fg = colors.slate, italic = config.italic.comments },
+    Todo = { bg = colors.gold, fg = colors.slate, italic = config.italic.comments, bold = config.bold },
+    Done = { bg = colors.green_dark, fg = colors.slate, italic = config.italic.comments, bold = config.bold },
+    Error = { bg = colors.red, fg = colors.slate, italic = config.italic.comments, bold = config.bold },
 
     Type = { fg = colors.green_neutral },
     Special = { fg = colors.green_muted },
-    Function = { fg = colors.green_opaque },
+    Function = { fg = colors.green_opaque, bold = config.bold },
 
     String = { fg = colors.green_bright, italic = config.italic.strings },
     Character = { fg = colors.green_bright },
