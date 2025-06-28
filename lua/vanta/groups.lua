@@ -33,9 +33,9 @@ function M.get()
     Done = { bg = colors.green_dark, fg = colors.slate, italic = config.italic.comments, bold = config.bold },
     Error = { bg = colors.red, fg = colors.slate, italic = config.italic.comments, bold = config.bold },
 
-    Type = { fg = colors.green_neutral },
+    Type = { fg = colors.green_muted },
     Special = { fg = colors.green_muted },
-    Function = { fg = colors.green_opaque, bold = config.bold },
+    Function = { fg = colors.green_muted, bold = config.bold },
 
     String = { fg = colors.green_bright, italic = config.italic.strings },
     Character = { fg = colors.green_bright },
@@ -163,7 +163,6 @@ function M.get()
     ["@string.regexp"] = { link = "String" },
     ["@string.escape"] = { link = "String" },
     ["@type"] = { fg = colors.green_muted },
-
   }
 
   return g
@@ -194,11 +193,10 @@ local function update_statusline()
 
       local bg_color = mode_colors[mode] or colors.blue_neutral
 
-
-      vim.api.nvim_set_hl(0, "MiniStatuslineDevinfo", { bg = bg_color, fg = colors.slate, })
-      vim.api.nvim_set_hl(0, "MiniStatuslineFileinfo", { bg = bg_color, fg = colors.slate, })
-      vim.api.nvim_set_hl(0, "MiniStatuslineFilename", { bg = bg_color, fg = colors.slate, })
-      vim.api.nvim_set_hl(0, "MiniStatuslineLocation", { bg = bg_color, fg = colors.slate, })
+      vim.api.nvim_set_hl(0, "MiniStatuslineDevinfo", { bg = bg_color, fg = colors.slate })
+      vim.api.nvim_set_hl(0, "MiniStatuslineFileinfo", { bg = bg_color, fg = colors.slate })
+      vim.api.nvim_set_hl(0, "MiniStatuslineFilename", { bg = bg_color, fg = colors.slate })
+      vim.api.nvim_set_hl(0, "MiniStatuslineLocation", { bg = bg_color, fg = colors.slate })
     end,
   })
 end
