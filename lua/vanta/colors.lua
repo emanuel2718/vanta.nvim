@@ -28,6 +28,7 @@ function M.get()
       green_light = palette.green_light,
       green_bright = palette.green_bright,
       red = palette.red,
+      red_dark = palette.red_dark,
       yellow = palette.yellow,
       violet = palette.violet,
       gold = palette.gold,
@@ -48,22 +49,22 @@ function M.apply()
   ---@type VantaPalette
   local c = M.get()
 
-  vim.g.terminal_color_0 = c.black         -- Black
-  vim.g.terminal_color_1 = c.red           -- Red
-  vim.g.terminal_color_2 = c.green_bright  -- Green
-  vim.g.terminal_color_3 = c.gold          -- Yellow
-  vim.g.terminal_color_4 = c.blue_light    -- Blue
-  vim.g.terminal_color_5 = c.violet        -- Magenta
-  vim.g.terminal_color_6 = c.blue_bright   -- Cyan
-  vim.g.terminal_color_7 = c.slate         -- White
-  vim.g.terminal_color_8 = c.grey_dark     -- Bright Black (Dark Grey)
-  vim.g.terminal_color_9 = c.red           -- Bright Red
+  vim.g.terminal_color_0 = c.black -- Black
+  vim.g.terminal_color_1 = c.red -- Red
+  vim.g.terminal_color_2 = c.green_bright -- Green
+  vim.g.terminal_color_3 = c.gold -- Yellow
+  vim.g.terminal_color_4 = c.blue_light -- Blue
+  vim.g.terminal_color_5 = c.violet -- Magenta
+  vim.g.terminal_color_6 = c.blue_bright -- Cyan
+  vim.g.terminal_color_7 = c.slate -- White
+  vim.g.terminal_color_8 = c.grey_dark -- Bright Black (Dark Grey)
+  vim.g.terminal_color_9 = c.red -- Bright Red
   vim.g.terminal_color_10 = c.green_bright -- Bright Green
-  vim.g.terminal_color_11 = c.yellow       -- Bright Yellow
-  vim.g.terminal_color_12 = c.blue_bright  -- Bright Blue
-  vim.g.terminal_color_13 = c.violet       -- Bright Magenta
-  vim.g.terminal_color_14 = c.blue_bright  -- Bright Cyan
-  vim.g.terminal_color_15 = c.slate        -- Bright White
+  vim.g.terminal_color_11 = c.yellow -- Bright Yellow
+  vim.g.terminal_color_12 = c.blue_bright -- Bright Blue
+  vim.g.terminal_color_13 = c.violet -- Bright Magenta
+  vim.g.terminal_color_14 = c.blue_bright -- Bright Cyan
+  vim.g.terminal_color_15 = c.slate -- Bright White
 end
 
 return M

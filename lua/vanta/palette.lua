@@ -17,6 +17,7 @@
 ---@field green_light string
 ---@field green_bright string
 ---@field red string
+---@field red_dark string
 ---@field yellow string
 ---@field violet string
 ---@field gold string
@@ -46,5 +47,6 @@ return {
   yellow = "#fde047",
   violet = "#5F005F",
   red = "#ff0000",
+  red_dark = "#3a0a0a",
   gold = "#5F5F00",
 }

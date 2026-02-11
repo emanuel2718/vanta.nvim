@@ -49,11 +49,11 @@ function M.get()
     SpellLocal = { undercurl = config.undercurl, sp = colors.blue_bright },
     SpellRare = { undercurl = config.undercurl, sp = colors.gold },
 
-    -- Git
-    DiffAdd = { bg = colors.green_bright, fg = colors.black },
-    DiffText = { bg = colors.gold, fg = colors.black },
-    DiffChange = { bg = colors.gold, fg = colors.black },
-    DiffDelete = { bg = colors.red, fg = colors.slate },
+    -- Git (neogit style: colored backgrounds, contrasting text)
+    DiffAdd = { bg = colors.green_dark, fg = colors.green_bright },
+    DiffDelete = { bg = colors.red_dark, fg = colors.red },
+    DiffChange = { bg = colors.blue_dark, fg = colors.blue_bright },
+    DiffText = { bg = colors.blue_dark, fg = colors.blue_bright },
 
     GitSignsAdd = { fg = colors.green_bright },
     GitSignsChange = { fg = colors.gold },
@@ -179,16 +179,16 @@ local function update_statusline()
 
       local mode_colors = {
         n = colors.blue_neutral, -- Normal
-        i = colors.green_teal,   -- Insert
-        v = colors.violet,       -- Visual
-        V = colors.violet,       -- Visual Line
+        i = colors.green_teal, -- Insert
+        v = colors.violet, -- Visual
+        V = colors.violet, -- Visual Line
         ["\22"] = colors.violet, -- Visual Block
-        R = colors.red,          -- Replace
-        c = colors.gold,         -- Command
-        s = colors.violet,       -- Select
-        S = colors.violet,       -- Select Line
+        R = colors.red, -- Replace
+        c = colors.gold, -- Command
+        s = colors.violet, -- Select
+        S = colors.violet, -- Select Line
         ["\19"] = colors.violet, -- Select Block
-        t = colors.green_teal,   -- Terminal
+        t = colors.green_teal, -- Terminal
       }
 
       local bg_color = mode_colors[mode] or colors.blue_neutral
