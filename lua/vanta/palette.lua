@@ -26,10 +26,10 @@
 return {
   black = "#000000",
   black_opaque = "#090909",
-  slate = "#e2e8f0",
+  slate = "#C4C4C4",
   grey_dark = "#1A1A1A",
-  grey_neutral = "#808080",
-  grey_light = "#757477",
+  grey_neutral = "#7A7A7A",
+  grey_light = "#969696",
 
   blue_dark = "#0f172a",
   blue_neutral = "#0000ff",
