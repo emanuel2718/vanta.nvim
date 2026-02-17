@@ -10,9 +10,14 @@ function M.get()
 
   Colors.apply()
 
-  local statusline_bg = "#C0C0C0"
-  local statusline_bg_nc = "#7A7A7A"
-  local statusline_mode_bg = "#3A3A3A"
+  local statusline_bg = "#141414"
+  local statusline_bg_alt = "#1E1E1E"
+  local statusline_bg_nc = "#0F0F0F"
+  local statusline_mode_normal_bg = "#0E2A3D"
+  local statusline_mode_insert_bg = "#163523"
+  local statusline_mode_visual_bg = "#3A2242"
+  local statusline_mode_replace_bg = "#3A1616"
+  local statusline_mode_command_bg = "#3A2E12"
   local completion_bg = colors.grey_dark
   local completion_border = colors.grey_neutral
   local warning_fg = "#FFD75F"
@@ -30,16 +35,16 @@ function M.get()
     MatchParen = { bg = colors.blue_light, fg = colors.slate, bold = config.bold },
 
     Search = { bg = colors.green_opaque, fg = colors.slate },
-    IncSearch = { bg = colors.blue_neutral, fg = colors.slate },
-    CurSearch = { link = "IncSearch" },
+    IncSearch = { fg = colors.yellow, bg = "NONE", bold = config.bold },
+    CurSearch = { bg = colors.blue_neutral, fg = colors.slate, bold = config.bold },
 
     Pmenu = { bg = completion_bg, fg = colors.slate },
     PmenuSel = { bg = colors.blue_neutral, fg = colors.slate, bold = config.bold },
     PmenuSbar = { bg = colors.black_opaque },
     PmenuThumb = { bg = colors.grey_neutral },
 
-    StatusLine = { bg = statusline_bg, fg = colors.black, bold = config.bold },
-    StatusLineNC = { bg = statusline_bg_nc, fg = colors.slate },
+    StatusLine = { bg = statusline_bg, fg = colors.slate, bold = config.bold },
+    StatusLineNC = { bg = statusline_bg_nc, fg = colors.grey_neutral },
 
     Comment = { fg = colors.grey_light, italic = config.italic.comments },
     SpecialComment = { fg = colors.grey_light, italic = config.italic.comments },
@@ -70,26 +75,36 @@ function M.get()
     SpellRare = { undercurl = config.undercurl, sp = colors.gold },
 
     -- Git (neogit style: colored backgrounds, contrasting text)
-    DiffAdd = { bg = colors.green_dark, fg = colors.green_bright },
-    DiffDelete = { bg = colors.red_dark, fg = colors.red },
-    DiffChange = { bg = colors.blue_dark, fg = colors.blue_bright },
-    DiffText = { bg = colors.blue_dark, fg = colors.blue_bright },
+    DiffAdd = { fg = colors.green_bright },
+    DiffDelete = { fg = colors.red },
+    DiffChange = { fg = colors.blue_bright },
+    DiffText = { fg = colors.blue_bright, bold = config.bold },
 
     GitSignsAdd = { fg = colors.green_bright },
     GitSignsChange = { fg = warning_fg },
     GitSignsDelete = { fg = colors.red },
 
     -- Mini
-    MiniStatuslineDevinfo = { bg = statusline_bg, fg = colors.black },
-    MiniStatuslineFileinfo = { bg = statusline_bg, fg = colors.black },
-    MiniStatuslineLocation = { bg = statusline_bg, fg = colors.black },
-    MiniStatuslineFilename = { bg = statusline_bg, fg = colors.black },
-    MiniStatuslineModeNormal = { bg = statusline_mode_bg, fg = colors.blue_bright, bold = config.bold },
-    MiniStatuslineModeInsert = { bg = statusline_mode_bg, fg = colors.green_bright, bold = config.bold },
-    MiniStatuslineModeVisual = { bg = statusline_mode_bg, fg = colors.violet, bold = config.bold },
-    MiniStatuslineModeReplace = { bg = statusline_mode_bg, fg = colors.red, bold = config.bold },
-    MiniStatuslineModeCommand = { bg = statusline_mode_bg, fg = colors.yellow, bold = config.bold },
+    MiniStatuslineDevinfo = { bg = statusline_bg_alt, fg = colors.grey_light },
+    MiniStatuslineFileinfo = { bg = statusline_bg, fg = colors.grey_light },
+    MiniStatuslineLocation = { bg = statusline_bg_alt, fg = colors.blue_bright },
+    MiniStatuslineFilename = { bg = statusline_bg, fg = colors.slate, bold = config.bold },
+    MiniStatuslineModeNormal = { bg = statusline_mode_normal_bg, fg = colors.blue_bright, bold = config.bold },
+    MiniStatuslineModeInsert = { bg = statusline_mode_insert_bg, fg = colors.green_bright, bold = config.bold },
+    MiniStatuslineModeVisual = { bg = statusline_mode_visual_bg, fg = colors.slate, bold = config.bold },
+    MiniStatuslineModeReplace = { bg = statusline_mode_replace_bg, fg = colors.red, bold = config.bold },
+    MiniStatuslineModeCommand = { bg = statusline_mode_command_bg, fg = colors.yellow, bold = config.bold },
+    MiniStatuslineModeOther = { bg = statusline_bg_alt, fg = colors.slate, bold = config.bold },
     MiniStatuslineInactive = { link = "StatusLineNC" },
+    MiniStatusLineModeNormal = { link = "MiniStatuslineModeNormal" },
+    MiniStatusLineModeInsert = { link = "MiniStatuslineModeInsert" },
+    MiniStatusLineModeVisual = { link = "MiniStatuslineModeVisual" },
+    MiniStatusLineModeReplace = { link = "MiniStatuslineModeReplace" },
+    MiniStatusLineModeCommand = { link = "MiniStatuslineModeCommand" },
+    MiniStatusLineModeOther = { link = "MiniStatuslineModeOther" },
+
+    -- fff.nvim
+    FFFMatched = { fg = colors.yellow, bold = config.bold },
 
     -- Completion menu
     CmpItemAbbr = { fg = colors.slate },
