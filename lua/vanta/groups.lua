@@ -22,6 +22,8 @@ function M.get()
   local completion_border = colors.grey_neutral
   local warning_fg = "#FFD75F"
   local warning_bg = "#302400"
+  local match_accent = "#00AAAA" -- Classic MS-DOS cyan/turquoise (ANSI color 3)
+  local match_text = "#FFFFFF"
 
   local g = {
     Normal = { bg = colors.black, fg = colors.slate },
@@ -34,9 +36,9 @@ function M.get()
 
     MatchParen = { bg = colors.blue_light, fg = colors.slate, bold = config.bold },
 
-    Search = { bg = colors.green_opaque, fg = colors.slate },
-    IncSearch = { fg = colors.yellow, bg = "NONE", bold = config.bold },
-    CurSearch = { bg = colors.blue_neutral, fg = colors.slate, bold = config.bold },
+    Search = { bg = match_accent, fg = match_text, bold = config.bold },
+    IncSearch = { bg = match_accent, fg = match_text, bold = config.bold },
+    CurSearch = { bg = match_accent, fg = match_text, bold = config.bold },
 
     Pmenu = { bg = completion_bg, fg = colors.slate },
     PmenuSel = { bg = colors.blue_neutral, fg = colors.slate, bold = config.bold },
@@ -93,7 +95,7 @@ function M.get()
     MiniStatuslineModeInsert = { bg = statusline_mode_insert_bg, fg = colors.green_bright, bold = config.bold },
     MiniStatuslineModeVisual = { bg = statusline_mode_visual_bg, fg = colors.slate, bold = config.bold },
     MiniStatuslineModeReplace = { bg = statusline_mode_replace_bg, fg = colors.red, bold = config.bold },
-    MiniStatuslineModeCommand = { bg = statusline_mode_command_bg, fg = colors.yellow, bold = config.bold },
+    MiniStatuslineModeCommand = { bg = statusline_mode_command_bg, fg = match_accent, bold = config.bold },
     MiniStatuslineModeOther = { bg = statusline_bg_alt, fg = colors.slate, bold = config.bold },
     MiniStatuslineInactive = { link = "StatusLineNC" },
     MiniStatusLineModeNormal = { link = "MiniStatuslineModeNormal" },
@@ -104,13 +106,13 @@ function M.get()
     MiniStatusLineModeOther = { link = "MiniStatuslineModeOther" },
 
     -- fff.nvim
-    FFFMatched = { fg = colors.yellow, bold = config.bold },
+    FFFMatched = { fg = match_accent, bold = config.bold },
 
     -- Completion menu
     CmpItemAbbr = { fg = colors.slate },
     CmpItemAbbrDeprecated = { fg = colors.grey_neutral, strikethrough = true },
-    CmpItemAbbrMatch = { fg = colors.grey_light },
-    CmpItemAbbrMatchFuzzy = { fg = colors.grey_light },
+    CmpItemAbbrMatch = { fg = match_accent, bold = config.bold },
+    CmpItemAbbrMatchFuzzy = { fg = match_accent, bold = config.bold },
     CmpItemKind = { fg = colors.green_bright },
     CmpItemMenu = { fg = colors.grey_light, italic = config.italic.comments },
 
@@ -125,13 +127,13 @@ function M.get()
     BlinkCmpDocSeparator = { bg = completion_bg, fg = completion_border },
     BlinkCmpSignatureHelp = { bg = completion_bg, fg = colors.slate },
     BlinkCmpSignatureHelpBorder = { bg = completion_bg, fg = completion_border },
-    BlinkCmpSignatureHelpActiveParameter = { fg = colors.yellow, bold = config.bold },
+    BlinkCmpSignatureHelpActiveParameter = { fg = match_accent, bold = config.bold },
     BlinkCmpKindFunction = { fg = colors.slate },
     BlinkCmpKindMethod = { fg = colors.slate },
     BlinkCmpKindField = { fg = colors.slate },
     BlinkCmpLabel = { fg = colors.slate },
     BlinkCmpLabelDeprecated = { fg = colors.grey_neutral, strikethrough = true },
-    BlinkCmpLabelMatch = { fg = colors.grey_light },
+    BlinkCmpLabelMatch = { fg = match_accent, bold = config.bold },
     BlinkCmpLabelDetail = { fg = colors.grey_light },
     BlinkCmpLabelDescription = { fg = colors.grey_neutral, italic = config.italic.comments },
     BlinkCmpSource = { fg = colors.grey_light },
